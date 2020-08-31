@@ -1,32 +1,31 @@
-import ../ej1
-import unittest
 import sys
-from StringIO import StringIO
-import subprocess
+sys.path.insert(1, './../')
+import cf
+import unittest
 
-class TestHello(unittest.TestCase):
-    def tc1(self):
-        self.assertEqual(ej1.fun("("),"NO")
-    def tc2(self):
-        self.assertEqual(ej1.fun("((("),"NO")
-    def tc3(self):
-        self.assertEqual(ej1.fun("()()"),"YES")
-    def tc4(self):
-        self.assertEqual(ej1.fun("[ [  ( )  ] ]"),"YES")
-    def tc5(self):
-        self.assertEqual(ej1.fun(")))"),"NO")
-    def tc6(self):
-        self.assertEqual(ej1.fun("[)"),"NO")
-    def tc7(self):
-        self.assertEqual(ej1.fun(")]"),"NO")
-    def tc8(self):
-        self.assertEqual(ej1.fun("() ["),"NO")
-    def tc8(self):
-        self.assertEqual(ej1.fun("[( )"),"NO")
-    def tc9(self):
-        self.assertEqual(ej1.fun("[ (  [)]]"),"NO")
-    def tc10(self):
-        self.assertEqual(ej1.fun("[[[[[[[[[[[()]]]]]]]]]]]"),"YES")
+class Testcf(unittest.TestCase):
+    def test_tc1(self):
+        self.assertEqual(cf.ej1("("),"NO")
+    def test_tc2(self):
+        self.assertEqual(cf.ej1("((("),"NO")
+    def test_tc3(self):
+        self.assertEqual(cf.ej1("()()"),"YES")
+    def test_tc4(self):
+        self.assertEqual(cf.ej1("[ [  ( )  ] ]"),"YES")
+    def test_tc5(self):
+        self.assertEqual(cf.ej1(")))"),"NO")
+    def test_tc6(self):
+        self.assertEqual(cf.ej1("[)"),"NO")
+    def test_tc7(self):
+        self.assertEqual(cf.ej1(")]"),"NO")
+    def test_tc8(self):
+        self.assertEqual(cf.ej1("() ["),"NO")
+    def test_tc8(self):
+        self.assertEqual(cf.ej1("[( )"),"NO")
+    def test_tc9(self):
+        self.assertEqual(cf.ej1("[ (  [)]]"),"NO")
+    def test_tc10(self):
+        self.assertEqual(cf.ej1("[[[[[[[[[[[()]]]]]]]]]]]"),"YES")
 
 if __name__ == '__main__':
     unittest.main()
