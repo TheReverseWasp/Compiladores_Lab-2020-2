@@ -8,14 +8,16 @@ def search_for(segment, kchar):
         acum += 1
     return -1
 
-def main():
-    tc = int(input())
+def fun(str):
+    lstr = str.split("\n")
+    tc = int(lstr[0])
+    answer = ""
     for i in range(1, tc + 1):
-        print("Problem #", i, sep = "")
+        answer += "Problem #" + str(i) + "\n"
         p = {"m": 0.001, "k": 1000, "M": 1000000}
         d = {"I=": False, "U=": False, "P=": False}
         dc ={"I=": "A", "U=": "V", "P=": "W"}
-        s = input()
+        s = lstr[i]
         while len(s) > 2:
             if s[:2] in d:
                 temp = search_for(s[2:], dc[s[:2]])
@@ -38,12 +40,22 @@ def main():
         for k, v in d.items():
             if v == False:
                 if k == "I=":
-                    print(k, '{0:.2f}'.format(d["P="] / d["U="]), "A", sep = "")
+                    answer += k + str('{0:.2f}'.format(d["P="] / d["U="])) + "A" + "\n"
                 elif k == "P=":
-                    print(k, '{0:.2f}'.format(d["I="] * d["U="]), "W", sep = "")
+                    answer += k + str('{0:.2f}'.format(d["I="] * d["U="])) + "W" + "\n"
                 elif k == "U=":
-                    print(k, '{0:.2f}'.format(d["P="] / d["I="]), "V", sep = "")
-        print()
+                    answer += k + str('{0:.2f}'.format(d["P="] / d["I="])) + "V" + "\n"
+        answer += "\n"
+    return answer
+
+def main():
+    nls = input()
+    nli = int(nls)
+    for i in range(nli):
+        s = input()
+        nls += "\n" + s
+    nls += "\n"
+    print(fun(str))
 
 if __name__ == "__main__":
     main()

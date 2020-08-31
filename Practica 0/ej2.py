@@ -1,7 +1,8 @@
 #Codigo por Ricardo Lazo Vásquez - ricardo.lazo@ucsp.edu.pe
 #correspondiente al segundo problema de la practica 0
-def main():
-    s = input().split(" ")
+
+def fun(s):
+    s = s.split(" ")
     spc = {"reir": "riendo", "salir": "saliendo", "abatir": "abatiendo"}
     if s[0] in spc:
         ch = spc[s[0]]
@@ -15,9 +16,14 @@ def main():
         elif s[0][-2:] == "ir":
             ch = s[0][:-2] + "endo"
     if ch == s[1]:
-        print("YES")
+        return "YES"
     else:
-        print("NO")
+        return "NO"
+
+def main():
+    s = input()
+    print(fun(s))
+
 
 if __name__ == "__main__":
     main()
