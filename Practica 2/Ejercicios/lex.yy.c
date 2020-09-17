@@ -321,6 +321,7 @@ void yyfree ( void *  );
 	}
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
+/* Begin user sect3 */
 typedef flex_uint8_t YY_CHAR;
 
 FILE *yyin = NULL, *yyout = NULL;
@@ -350,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 2
-#define YY_END_OF_BUFFER 3
+#define YY_NUM_RULES 12
+#define YY_END_OF_BUFFER 13
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -359,26 +360,32 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[9] =
+static const flex_int16_t yy_accept[68] =
     {   0,
-        0,    0,    3,    2,    2,    1,    0,    0
+        0,    0,   13,   12,   12,   12,   12,   12,   12,   12,
+       12,   12,    0,    0,    0,    0,    0,    0,    0,    0,
+        0,    3,    0,    0,    4,    0,    0,    0,    0,    5,
+        1,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+        0,    0,    7,    0,    0,    0,    0,    0,   10,    0,
+        0,    0,    0,    0,    9,    0,    0,    0,    8,    0,
+        2,    0,    6,    0,    0,   11,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    2,    1,    3,    4,    5,    6,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        7,    8,    1,    9,   10,   11,    1,   12,   13,   14,
+       15,    1,    1,   16,   17,   18,   19,   20,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -396,29 +403,62 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[4] =
+static const YY_CHAR yy_meta[21] =
     {   0,
-        1,    1,    1
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[10] =
+static const flex_int16_t yy_base[69] =
     {   0,
-        3,    2,    4,    7,    0,    7,    0,    7,    0
+        0,   18,   76,   77,   61,   64,   58,   65,   56,   60,
+       53,   65,   57,   63,   49,    2,   51,   50,   43,   45,
+       45,   77,   56,   41,   77,   53,   52,   48,   52,   77,
+       77,   50,   36,   36,   48,   35,   37,   40,   34,    2,
+       42,   37,   77,   28,   35,   26,   33,   26,   77,   20,
+       29,   17,   16,   22,   77,   19,   23,    8,   77,   20,
+       77,   19,   77,    1,    0,   77,   77,    0
     } ;
 
-static const flex_int16_t yy_def[10] =
+static const flex_int16_t yy_def[69] =
     {   0,
-        9,    9,    8,    8,    8,    8,    5,    0,    8
+       68,   68,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,    0,   67
     } ;
 
-static const flex_int16_t yy_nxt[11] =
+static const flex_int16_t yy_nxt[98] =
     {   0,
-        4,    6,    7,    8,    5,    5,    3,    8,    8,    8
+        4,   67,    5,   67,   67,    6,   66,   67,    7,   45,
+       46,   65,    8,    9,   47,   24,   10,   11,   25,   12,
+        5,   64,   63,    6,   62,   61,    7,   60,   59,   58,
+        8,    9,   57,   56,   10,   11,   55,   12,   54,   53,
+       52,   51,   50,   49,   48,   44,   43,   42,   41,   40,
+       39,   38,   37,   36,   35,   34,   33,   32,   31,   30,
+       29,   28,   27,   26,   23,   22,   21,   20,   19,   18,
+       17,   16,   15,   14,   13,   67,    3,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67
+
     } ;
 
-static const flex_int16_t yy_chk[11] =
+static const flex_int16_t yy_chk[98] =
     {   0,
-        9,    5,    5,    3,    2,    1,    8,    8,    8,    8
+       68,    0,    1,    0,    0,    1,   65,    0,    1,   40,
+       40,   64,    1,    1,   40,   16,    1,    1,   16,    1,
+        2,   62,   60,    2,   58,   57,    2,   56,   54,   53,
+        2,    2,   52,   51,    2,    2,   50,    2,   48,   47,
+       46,   45,   44,   42,   41,   39,   38,   37,   36,   35,
+       34,   33,   32,   29,   28,   27,   26,   24,   23,   21,
+       20,   19,   18,   17,   15,   14,   13,   12,   11,   10,
+        9,    8,    7,    6,    5,    3,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67
+
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -435,8 +475,16 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "f.l"
-#line 439 "lex.yy.c"
+#line 1 "script.l"
+#line 2 "script.l"
+  int contador = 1;
+  char inicio[] = "\\begin{tabular}{|c|p{3cm}|p{8cm}|p{2cm}|} \\hline \n";
+  char fin[] = "\\hline\n\\end{tabular}";
+  int main(){
+    yylex();
+    printf("Se conto %d lineas", contador);
+  }
+#line 487 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -653,9 +701,9 @@ YY_DECL
 		}
 
 	{
-#line 1 "f.l"
+#line 11 "script.l"
 
-#line 658 "lex.yy.c"
+#line 706 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -682,13 +730,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 9 )
+				if ( yy_current_state >= 68 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 7 );
+		while ( yy_base[yy_current_state] != 77 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -713,19 +761,66 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-*yy_cp = (yy_hold_char); /* undo effects of setting up yytext */
-(yy_c_buf_p) = yy_cp -= 1;
-YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 2 "f.l"
-printf("AQUI VA UN NUMERO");
+#line 12 "script.l"
+{(1[0-2]:[0-5][0-9] ([(a. m.)|(p. m.)]))}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 3 "f.l"
+#line 13 "script.l"
+(\[{hora})
+	YY_BREAK
+case 3:
+YY_RULE_SETUP
+#line 14 "script.l"
+{[1-9]|([1-2][0-9])|(3[0-1])}
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 15 "script.l"
+{[1-9]|(1[0-2])}
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 16 "script.l"
+{[1-9][1-9][1-9][1-9]}
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 17 "script.l"
+({dia}/{mes}/{anio}\])
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 18 "script.l"
+{[a-z|A-Z|0-9| ]+}
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 19 "script.l"
+{\] {nombre}:}
+	YY_BREAK
+case 9:
+YY_RULE_SETUP
+#line 20 "script.l"
+{[\.|\,|\[|\]|-|_|=]}
+	YY_BREAK
+case 10:
+YY_RULE_SETUP
+#line 21 "script.l"
+([{nombre}|({simbolo}+)])
+	YY_BREAK
+case 11:
+YY_RULE_SETUP
+#line 22 "script.l"
+({: {mensaje}$})
+	YY_BREAK
+case 12:
+YY_RULE_SETUP
+#line 23 "script.l"
 ECHO;
 	YY_BREAK
-#line 728 "lex.yy.c"
+#line 823 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1022,7 +1117,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 9 )
+			if ( yy_current_state >= 68 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1050,11 +1145,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 9 )
+		if ( yy_current_state >= 68 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 8);
+	yy_is_jam = (yy_current_state == 67);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1730,4 +1825,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 3 "f.l"
+#line 23 "script.l"
+
+{true_hora} { char true_hora[] = ECHO; int t = 0; while(true_hora[t + 1] != '\0') {true_hora[t] = true_hora[t + 1]; t += 1;}; true_hora[t] = '\0';  }
+{true_fecha}  { char true_fecha[] = ECHO; int t = 0; while(true_fecha[t + 1] != ']') {t += 1;}; true_fecha[t + 1] = '\0';  }
+{var_name} { char var_name = ECHO; int t = 2; while(var_name[t] != ':') {var_name[t-2] = var_name[t];}; var_name[t] = '\0'; var_name[t-1] = '\0'; }
+{true_mensaje}  { char true_mensaje = ECHO; int t = 2; while(true_mensaje[t] != ':') {true_mensaje[t-2] = true_mensaje[t];}; true_mensaje[t] = '\0'; true_mensaje[t-1] = '\0'; }
+$ { printf("%s", inicio); printf("\t\\textsc{%s}\n\t%d & %s \n\t\\begin{tabular}{c}\n\t\t\\footnotesize{%s} \\\\\n\t\t\\Large{\\textbf{%s}} \\\\\n\t\\end{tabular} \\\n%s", var_name, contador, true_mensaje, true_fecha, true_hora, fin); }
+%%
+
