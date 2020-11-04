@@ -2,7 +2,6 @@ import re
 import copy as cp
 from extrafuns import *
 
-
 byTipo = {"String": True, "id": True, "Numero": True}
 
 class Token:
