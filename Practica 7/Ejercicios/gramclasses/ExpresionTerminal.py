@@ -17,4 +17,4 @@ class ExpresionTerminal(ExpresionAbstracta):
 
 
 	def imprimirExpresionInterpretada(self, tabs):
-		print(self.nombre, end=", ")
+		print(self.nombre)

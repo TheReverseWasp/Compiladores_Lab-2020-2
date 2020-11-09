@@ -47,45 +47,43 @@ class Interprete:
 				break
 			else:
 				v = False
-		print("this is v", v)
 		if not v:
 			print("Error en la gramatica: No se pudo parsear la expresion")
 			return False, False
-		while it < len(tokens):
-			for elem in v:
-				print("ita", it, exprit, v, len(tokens), expr)
+		while it < len(tokens) and exprit < len(v):
+			print(it, exprit, tokens[it].palabra)
+			print(expr, v)
+			elem = v[exprit]
+			if elem in self.gram.terminales:
 				if elem in self.gram.terminales:
-					if elem == expresionTerminal.getNombre():
-						if elem in self.gram.terminales:
-							if elem != "$":
-								expresionTerminal = self.expresionTerminalMaestra.interpretar(tokens[it])
-								items.append(expresionTerminal)
-								it += 1
-								exprit += 1
-							else:
-								expresionTerminal = self.expresionTerminalMaestra.interpretarVacio("$")
-								items.append(expresionTerminal)
-								exprit += 1
-						else:
-							tempit, tempExpresionNoTerminal = verificar_expresion(elem, tokens[it:])
-							if not tempExpresionNoTerminal:
-								print("error 1")
-								return False, False
-							expresionNoTerminal = self.TAS[elem].interpretar(tempExpresionNoTerminal)
-							items.append(expresionNoTerminal)
-							it += tempit
-							exprit += 1
+					if elem != "$":
+						expresionTerminal = self.expresionTerminalMaestra.interpretar(tokens[it])
+						items.append(expresionTerminal)
+						it += 1
+						exprit += 1
+					else:
+						expresionTerminal = self.expresionTerminalMaestra.interpretarVacio("$")
+						items.append(expresionTerminal)
+						exprit += 1
 				else:
-					tempit, tempExpresionNoTerminal = self.verificar_expresion(elem, tokens[it:])
+					tempit, tempExpresionNoTerminal = verificar_expresion(elem, tokens[it:])
 					if not tempExpresionNoTerminal:
-						print("error 2")		
+						print("error 1")
 						return False, False
 					expresionNoTerminal = self.TAS[elem].interpretar(tempExpresionNoTerminal)
 					items.append(expresionNoTerminal)
 					it += tempit
 					exprit += 1
+			else:
+				tempit, tempExpresionNoTerminal = self.verificar_expresion(elem, tokens[it:])
+				if not tempExpresionNoTerminal:
+					print("error 2")		
+					return False, False
+				expresionNoTerminal = self.TAS[elem].interpretar(tempExpresionNoTerminal)
+				items.append(expresionNoTerminal)
+				it += tempit
+				exprit += 1
 		while exprit < len(v):
-			print("itb", it, exprit, v, len(tokens), expr)
 			if v[exprit] == "$":
 				expresionTerminal = self.expresionTerminalMaestra.interpretarVacio("$")
 				items.append(expresionTerminal)
@@ -95,7 +93,6 @@ class Interprete:
 					print("error 3")
 					return False, False
 				else:
-					print("trololol")
 					tempit, tempExpresionNoTerminal = self.verificar_expresion(v[exprit], tokens[it:])
 					if not tempExpresionNoTerminal:
 						print("error 4")
@@ -104,7 +101,6 @@ class Interprete:
 					items.append(expresionNoTerminal)
 					it += tempit
 					exprit += 1
-		print(items)
 		return it, items
         
 	def verificar_correctitud(self, linea):
@@ -125,5 +121,6 @@ class Interprete:
 		if not expresionNoTerminal:
 			print("Error identificando los items")
 			return False
+		print("Gramatica Correcta")
 		return expresionNoTerminal
 
