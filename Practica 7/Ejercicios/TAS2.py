@@ -1,5 +1,6 @@
 from Gram import *
 
+
 class TAS_Dynamic_P6:
     def __init__(self, gram, funAL):
         self.gram = gram
@@ -24,6 +25,8 @@ class TAS_Dynamic_P6:
             print(k1)
             for k2, v2 in v1.items():
                 print("[+] " + k2 + " : " + v2.izq + " -> " + str(v2.der))
+
+
 
     def check_if_correct(self, texto):
         tokens = self.funAL(texto)
