@@ -12,7 +12,7 @@ class ExpresionTerminal(ExpresionAbstracta):
 	def interpretarVacio(self, voidchar):
 		expresionTerminal = cp.deepcopy(self)
 		expresionTerminal.nombre = voidchar
-		expresionTerminal.expresion.append("$")
+		expresionTerminal.expresion.append(voidchar)
 		return expresionTerminal
 
 	def imprimirExpresionInterpretada(self):

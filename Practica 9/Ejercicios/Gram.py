@@ -67,3 +67,18 @@ class Gram:
         for k, v in self.noterminales.items():
             answer.append([k, self.getPrimero(k)])
         return answer
+
+    def getProduccionUnica(self, init_char):
+        answer = []
+        for i in self.Producciones:
+            if i.izq == init_char:
+                answer.append(i.der)
+        if len(answer) > 1:
+            return False, answer
+        return True, answer
+
+    def searchForEmpty(self, nombre):
+        for i in self.Producciones:
+            if i.izq == nombre and i.der[0] == "$":
+                return i.der
+        return False
